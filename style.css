@@ -112,7 +112,6 @@ body {
 }
 
 .box.hovered {
-    background-color: #97C8EB; 
-    transform: translateY(-4px); 
     cursor: pointer;
 }
+
