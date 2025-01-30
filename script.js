@@ -7,9 +7,9 @@ let reset = document.querySelector("#reset")
 let boxAmount = 9;
 let size = `55.5`;
 let box;
+let hold = false;
 
-
-let buttonActivated;
+let buttonActivated = 0;
 normal.classList.add("selected");
 
 random.addEventListener("click", () => {
@@ -35,18 +35,26 @@ erase.addEventListener("click", () => {
 
 
 const paint = (element) => {
+    document.addEventListener("mousedown", () => { hold = true; });
+    document.addEventListener("mouseup", () => { hold = false })
+
     element.addEventListener("mouseover", () => {
-        let paintColor;
-        if (buttonActivated === 1) {
-            paintColor = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
-        } else if (buttonActivated === 0){
-            paintColor = "white";
-        } else if (buttonActivated === -1) {
-            paintColor = "black";
+
+        if (hold) {
+            let paintColor;
+            if (buttonActivated === 1) {
+                paintColor = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
+            } else if (buttonActivated === 0) {
+                paintColor = "white";
+            } else if (buttonActivated === -1) {
+                paintColor = "black";
+            }
+            element.style.background = paintColor;
         }
 
-        element.style.background = paintColor;
-    });
+
+    })
+
 }
 
 let resetAll = (element) => {
