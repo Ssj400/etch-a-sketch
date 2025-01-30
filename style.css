@@ -10,12 +10,11 @@ body {
 
 .header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 }
 
 .typewriter {
-    margin-right: auto;
     display: flex;
     justify-content: center;
 }
@@ -99,10 +98,21 @@ body {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+    padding: 0 20px;
 }
 
-#container div {
+.box {
     width: 50px;
     height: 50px;
     background-color: #3AAFB9;
+    border: 3px inset #c2c0c0;
+    border-radius: 6px;
+}
+
+.box.hovered {
+    background-color: #97C8EB; 
+    transform: translateY(-4px); 
+    cursor: pointer;
 }
